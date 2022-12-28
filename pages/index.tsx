@@ -27,7 +27,7 @@ export default function Home() {
   // function to handle text submit
   const submit = async () => {
     //check if character limit is exceeded
-    if (input.length > 30) {
+    if (input.length > 40) {
       return setError(true);
     }
 
@@ -60,7 +60,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="max-w-7x1 mx-auto py-12">
-        <h2 className="text-2xl font-bold text-center pb-2">Copy Generator</h2>
+        <h2 className="text-2xl font-bold text-center pb-2">
+          What problem blockchain/crypto could solve?
+        </h2>
+        <h3 className="text-center pb-2">Solution generator</h3>
         {/* input field */}
         <div className="flex flex-col gap-2 justify-center w-1/3 mx-auto">
           <div className="relative w-full">
@@ -75,7 +78,7 @@ export default function Home() {
               onChange={(e) => setInput(e.target.value)}
               value={input}
               className="w-full border-2 border-gray-300 bg-white p-4 rounded-lg text-sm focus:outline-none resize-none"
-              placeholder="Enter your copy here"
+              placeholder="Enter a problem that crypto/blockchain could solve"
             />
             {/* charecter limit text in the bottom right side of textarea */}
             <div
@@ -104,9 +107,9 @@ export default function Home() {
           {/* output field with the results (shown only when "suggestion" is true) */}
           {suggestion && (
             <div className="mt-8">
-              <h4 className="text-lg font-semibold pb-2">Your copy:</h4>
+              <h4 className="text-lg font-semibold pb-2">Solution:</h4>
               <div className="relative w-full rounded-md bg-gray-100 p-4">
-                <p className="text-sm text-gray-700">{suggestion}</p>
+                <p className="text-lg text-gray-700">{suggestion}</p>
               </div>
             </div>
           )}

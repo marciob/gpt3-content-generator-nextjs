@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { configuration } from "../utils/constants";
 import { OpenAIApi } from "openai";
+import { initial_prompt, final_prompt } from "../utils/my_prompt";
 
 type Data = {
   result: any;
@@ -17,8 +18,8 @@ export default async function handler(
 
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `You are a marketing expert, and a customer approaches you to write a short and exiciting marketing copy for him or her. This is the topic they would like a marketing copy on the topic of ${input}. This is the short marketing copy you came up with:`,
-    max_tokens: 40,
+    prompt: `${initial_prompt} ${input} ${final_prompt}`,
+    max_tokens: 500,
     temperature: 0.8,
     // top_p: 1,
     // n: 1,
