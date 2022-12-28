@@ -1,3 +1,5 @@
+import React from "react";
+
 const { Configuration, OpenAIApi } = require("openai");
 
 export const configuration = new Configuration({
@@ -5,3 +7,9 @@ export const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
+
+const MyComponent = () => {
+  return;
+};
+
+export default MyComponent;
